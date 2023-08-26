@@ -28,13 +28,6 @@ async function screenshot(url, { format, viewport, dpr = 1, withJs = true, wait,
 
   const page = await browser.newPage();
   
-  // 使用自定义字体文件
-  await page.evaluate(() => {
-    const font = new FontFace('Microsoft YaHei New', 'url(./微软雅黑.ttf)'); // 这里使用相对路径引用字体文件
-    document.fonts.add(font);
-    document.body.style.fontFamily = 'Microsoft YaHei New,sans-serif !important'; // 设置使用自定义字体
-  });
-  
   //if(!withJs) {
   //  page.setJavaScriptEnabled(false);
   //}
@@ -54,6 +47,13 @@ async function screenshot(url, { format, viewport, dpr = 1, withJs = true, wait,
   if(response === false) { // timed out, resolved false
     await page.evaluate(() => window.stop());
   }
+
+    // 使用自定义字体文件
+  await page.evaluate(() => {
+    const font = new FontFace('Microsoft YaHei New', 'url(./微软雅黑.ttf)'); // 这里使用相对路径引用字体文件
+    document.fonts.add(font);
+    document.body.style.fontFamily = 'Microsoft YaHei New,sans-serif !important'; // 设置使用自定义字体
+  });
 
   // let statusCode = response.status();
   // TODO handle 4xx/5xx status codes better
