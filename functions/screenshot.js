@@ -35,9 +35,9 @@ async function screenshot(url, { format, viewport, dpr = 1, withJs = true, wait,
     document.body.style.fontFamily = 'YourCustomFont, sans-serif'; // 设置使用自定义字体
   });
   
-  if(!withJs) {
-    page.setJavaScriptEnabled(false);
-  }
+  //if(!withJs) {
+  //  page.setJavaScriptEnabled(false);
+  //}
 
   let response = await Promise.race([
     page.goto(url, {
