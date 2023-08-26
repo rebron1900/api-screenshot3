@@ -30,9 +30,9 @@ async function screenshot(url, { format, viewport, dpr = 1, withJs = true, wait,
   
   // 使用自定义字体文件
   await page.evaluate(() => {
-    const font = new FontFace('YourCustomFont', 'url(./微软雅黑.ttf)'); // 这里使用相对路径引用字体文件
+    const font = new FontFace('Microsoft YaHei New', 'url(./微软雅黑.ttf)'); // 这里使用相对路径引用字体文件
     document.fonts.add(font);
-    document.body.style.fontFamily = 'YourCustomFont, sans-serif'; // 设置使用自定义字体
+    document.body.style.fontFamily = 'Microsoft YaHei New,sans-serif !important'; // 设置使用自定义字体
   });
   
   //if(!withJs) {
